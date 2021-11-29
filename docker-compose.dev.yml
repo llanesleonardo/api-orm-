@@ -1,0 +1,56 @@
+version: '3.9'
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+  internal:
+    internal: true
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql_wp_dev
+    volumes:
+      - ./db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_USER:-root}
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: ${ROOT_USER:-user}
+      MYSQL_PASSWORD: ${ROOT_USER:-user}
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_wp
+    restart: always
+    ports:
+      - 8082:80
+    environment:
+      PMA_HOST: mysql
+      UPLOAD_LIMIT: 1024M
+      MYSQL_ROOT_PASSWORD: ${ROOT_USER:-root}
+      MYSQL_PASSWORD: ${ROOT_PASSWORD:-root}
+
+  api:
+    depends_on:
+      - db
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    container_name: api_dev
+    volumes:
+      - '/opt/api/node_modules'
+      - './api:/opt/api'
+    ports:
+      - 4000:4000
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_USER:-root}
+      MYSQL_DATABASE: test
+      MYSQL_USER: ${ROOT_USER:-user}
+      MYSQL_PASSWORD: ${ROOT_USER:-user}
