@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "apidev",
   "version": "1.0.0",
   "description": "express es6 api",
   "main": "index.js",
@@ -8,9 +8,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start:prod": "node dist/index.js",
-    "start": "nodemon --exec babel-node src/index.js",
-    "build": "babel src --out-dir dist"
+    "prod": "node dist/index.js",
+    "start": "nodemon --exec npx babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "test": "jest --watch"
   },
   "dependencies": {
     "app-root-path": "^3.0.0",
@@ -21,7 +22,9 @@
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "http-status-codes": "^2.1.4",
-    "morgan": "^1.10.0"
+    "jest": "^27.4.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

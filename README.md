@@ -1,10 +1,10 @@
 # Practica entorno dev
 
-- conectar api con mysql
+- conectar api con mysql X
 - usar [typeORM](https://www.npmjs.com/package/typeorm)
-- instalar JEST
-- Estructurar el proyecto
-- Intalar [module resolver](https://www.npmjs.com/package/babel-plugin-module-resolver)
+- instalar JEST X
+- Estructurar el proyecto X
+- Intalar [module resolver](https://www.npmjs.com/package/babel-plugin-module-resolver) X
 - Crear Un modulo ABC
 - Crear pruebas unitarias
 - Crear un Dockerfile para pruebas unitarias Dockerfile.ut
