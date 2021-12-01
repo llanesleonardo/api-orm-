@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e">
+    <diagram id="OKNzT_furj1DFBNnY6IJ" name="Page-1">
+        <mxGraphModel dx="879" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="18" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#23445d;fillColor=#bac8d3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="110" width="810" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="150" width="750" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(39 , 40 , 34) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;depends_on&lt;/span&gt;:- &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;db&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;build&lt;/span&gt;:&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;context&lt;/span&gt;: &lt;span style=&quot;color: #e6db74&quot;&gt;./api&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;dockerfile&lt;/span&gt;: &lt;span style=&quot;color: #e6db74&quot;&gt;Dockerfile.dev&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;container_name&lt;/span&gt;: &lt;span style=&quot;color: #e6db74&quot;&gt;api_dev&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;volumes&lt;/span&gt;:- &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;'/opt/api/node_modules'&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; - &lt;span style=&quot;color: #e6db74&quot;&gt;'./api:/opt/api'&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;ports&lt;/span&gt;: - &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;4000:4000&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="220" width="360" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(39 , 40 , 34) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&lt;span style=&quot;color: #f92672&quot;&gt;depends_on&lt;/span&gt;: - &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;db&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;color: #f92672&quot;&gt;image&lt;/span&gt;:&amp;nbsp;&lt;span style=&quot;color: #e6db74&quot;&gt;phpmyadmin:latest&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;container_name&lt;/span&gt;:&amp;nbsp;&lt;span style=&quot;color: #e6db74&quot;&gt;phpmyadmin_api&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;restart&lt;/span&gt;: &lt;span style=&quot;color: #e6db74&quot;&gt;always&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &lt;span style=&quot;color: #f92672&quot;&gt;ports&lt;/span&gt;:- &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;8082:80&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="220" width="280" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(39 , 40 , 34) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #f92672&quot;&gt;image&lt;/span&gt;: &lt;span style=&quot;color: #e6db74&quot;&gt;mysql:5.7&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(39 , 40 , 34) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: rgb(249 , 38 , 114)&quot;&gt;container_name&lt;/span&gt;: &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;mysql_api_dev&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(39 , 40 , 34) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: rgb(249 , 38 , 114)&quot;&gt;volumes&lt;/span&gt;: - &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;./db_data:/var/lib/mysql&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(248 , 248 , 242) ; background-color: rgb(39 , 40 , 34) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(249 , 38 , 114)&quot;&gt;ports&lt;/span&gt;: - &lt;span style=&quot;color: rgb(230 , 219 , 116)&quot;&gt;3306:3306&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="460" width="700" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;font color=&quot;#000000&quot;&gt;Express js&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="295" y="200" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;font color=&quot;#000000&quot;&gt;PHPMyAdmin&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="545" y="200" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font color=&quot;#000000&quot;&gt;MYSQL&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="440" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;span style=&quot;font-family: &amp;#34;open sans&amp;#34; , &amp;#34;helvetica neue&amp;#34; , sans-serif ; text-align: left&quot;&gt;&lt;font color=&quot;#ffffff&quot; style=&quot;font-size: 11px&quot;&gt;/opt/api&lt;/font&gt;&lt;/span&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="380" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;span style=&quot;color: rgb(255 , 255 , 255) ; font-family: &amp;#34;open sans&amp;#34; , &amp;#34;helvetica neue&amp;#34; , sans-serif ; text-align: left&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;/opt/api/node_modules&lt;/font&gt;&lt;/span&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="380" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="db_data&lt;br&gt;binding" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="510" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;font color=&quot;#000000&quot;&gt;Docker&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="160" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;font color=&quot;#000000&quot;&gt;Digital Ocean VM&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="385" y="120" width="120" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

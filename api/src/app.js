@@ -4,6 +4,8 @@ import morgan from "morgan";
 import cors from "cors";
 import compression from "compression";
 import rootPath from "app-root-path";
+import router from "./router";
+import "reflect-metadata";
 // set var's
 const appRootPath = rootPath.toString();
 // Create express instance's
@@ -23,5 +25,7 @@ app.use(express.static(`${appRootPath}/public`));
 app.use(express.static(`${appRootPath}/public/uploads`));
 // static routes
 app.get("/", (_, res) => res.sendFile("public", "index.html"));
+
+app.use(router);
 
 export default app;

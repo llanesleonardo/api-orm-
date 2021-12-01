@@ -2,16 +2,21 @@
   "presets": ["@babel/preset-env"],
   "plugins": [
     ["@babel/transform-runtime"],
+    ["@babel/plugin-proposal-decorators",{"legacy":true}],
     [
       "module-resolver",
       {
-        "root": ["src"],
+        "root": ["./src"],
         "alias": {
           "@config": "./src/config",
           "@middleware": "./src/middleware",
           "@modules": "./src/modules",
           "@utils": "./src/utils",
-          "@router": "./src/router.js",
+          "@routes": "./src/routes",
+          "@models": "./src/models",
+          "@controllers": "./src/controllers",
+          "@services": "./src/services",
+          "@helpers": "./src/helpers",
           "@app": "./src/app.js"
         }
       }
