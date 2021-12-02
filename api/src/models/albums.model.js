@@ -5,9 +5,10 @@ import { EntitySchema } from "typeorm";
  * @name_ attribute that has to be use to call Schemas in Services
  * @tableName how this schema will name the table in the database
  */
-const EntityS = new EntitySchema({
-  name: "photos",
-  tableName: "photos",
+
+module.exports = new EntitySchema({
+  name: "Album", // Will use table name `Album` as default behaviour.
+  tableName: "albums", // Optional: Provide `tableName` property to override the default behaviour for table name.
   columns: {
     id: {
       primary: true,
@@ -18,14 +19,4 @@ const EntityS = new EntitySchema({
       type: "varchar",
     },
   },
-  relations: {
-    albums: {
-      target: "Album",
-      type: "many-to-one",
-      joinTable: true,
-      cascade: true,
-    },
-  },
 });
-
-module.exports = EntityS;

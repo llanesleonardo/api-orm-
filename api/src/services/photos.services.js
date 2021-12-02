@@ -1,10 +1,11 @@
 import { getRepository, getConnection } from "typeorm";
+import { Photos } from "../models/photos.models.ts";
 /**
  * @getPhotoRepository get a specific repositor, similar to use a specific schema or table in the database
  */
 function getPhotoRepository() {
   try {
-    return getConnection().getRepository("photos");
+    return getConnection().getRepository(Photos);
   } catch (e) {
     return console.log("sucedió un error en el service " + e.stack);
   }
@@ -37,8 +38,18 @@ export async function show(id) {
  */
 export async function store(payload) {
   try {
+    let album1 = {
+      id: 1,
+      name: "TypeScript",
+    };
+    let album2 = {
+      id: 2,
+      name: "Programming",
+    };
+    let photoWithAlbum = { ...payload, albums: [album1, album2] };
     let photo = await getPhotoRepository().create(payload);
     return await getPhotoRepository().save(photo);
+    // return photoWithAlbum;
   } catch (e) {
     return console.log("sucedió un error en el service " + e.stack);
   }
@@ -48,10 +59,18 @@ export async function store(payload) {
  * @param  {} id
  * @param  {} paypload
  */
-export async function update(id, paypload) {
+export async function update(id, payload) {
   try {
+    let album1 = {
+      id: 1,
+      name: "TypeScript",
+    };
+    let album2 = {
+      id: 2,
+      name: "Programming",
+    };
     let photoToUpdate = await getPhotoRepository().findOne(id);
-    getRepository("photos").merge(photoToUpdate, paypload);
+    getRepository("photos").merge(photoToUpdate, payload);
     return await getPhotoRepository().save(photoToUpdate);
   } catch (e) {
     return console.log("sucedió un error en el service " + e.stack);
