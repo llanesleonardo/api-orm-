@@ -1,9 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-const EntitySchema = require("typeorm").EntitySchema;
-
-export const Photos = new EntitySchema({
-  name: "photos", // Will use table name `category` as default behaviour.
-  tableName: "photos", // Optional: Provide `tableName` property to override the default behaviour for table name.
+import { EntitySchema } from "typeorm";
+/**
+ * @EntitySchema  it is an instance of an object that creates a Table in the Database
+ * @columns object tnat contains other objects. The main objective of this objects it to define attributes in the db (columns)
+ * @name_ attribute that has to be use to call Schemas in Services
+ * @tableName how this schema will name the table in the database
+ */
+module.exports = new EntitySchema({
+  name: "photos",
+  tableName: "photos",
   columns: {
     id: {
       primary: true,
@@ -15,24 +19,3 @@ export const Photos = new EntitySchema({
     },
   },
 });
-
-/*@Entity()
-export class Photo {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  name: string;
-
-  @Column()
-  description: string;
-
-  @Column()
-  filename: string;
-
-  @Column()
-  views: number;
-
-  @Column()
-  isPublished: boolean;
-}*/

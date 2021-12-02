@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as photos from "@controllers/photos.controllers";
+import * as photosController from "@controllers/photos.controllers";
 
 const router = Router();
 
@@ -8,18 +8,31 @@ const router = Router();
  * @param  {} res
  * @param  {} next
  */
-router.get("/photos", photos.index);
 
-router.post("/photos");
-
-router.get("/photos/:id", photos.show);
-
-router.put("/photos/:id", (req, res, next) => {
-  res.status(200).json({ message: "photos" });
-});
-
-router.delete("/photos/:id", (req, res, next) => {
-  res.status(200).json({ message: "photos" });
-});
+/**
+ * @param  {} "/photos"
+ * @param  {} photosController.index calling the index function in the photosController file (fetch all documents)
+ */
+router.get("/photos", photosController.index);
+/**
+ * @param  {} "/photos"
+ * @param  {} photosController.store calling the store function in the photosController file (save a document)
+ */
+router.post("/photos", photosController.store);
+/**
+ * @param  {id"} "/photos/
+ * @param  {} photosController.show calling the show function in the photosController file (fetch a document)
+ */
+router.get("/photos/:id", photosController.show);
+/**
+ * @param  {id"} "/photos/
+ * @param  {} photosController.update calling the update function in the photosController file (update a document)
+ */
+router.put("/photos/:id", photosController.update);
+/**
+ * @param  {id"} "/photos/
+ * @param  {} photosController.destroy calling the destroy function in the photosController file (destroy a document)
+ */
+router.delete("/photos/:id", photosController.destroy);
 
 export default router;

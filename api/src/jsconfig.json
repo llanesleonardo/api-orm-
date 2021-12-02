@@ -1,3 +1,9 @@
+/*
+ * @compilerOptions  object that has more attributes, those attributes are use to tell visual studio how paths are going to work with decorators
+ * @baseUrl is the url where the project lives
+ * @paths object that contains attributes "decorators"
+ * @decorators is an attribute that contains an array of values like this "@config": ["./config"], this is a solution for long and boring url imports
+*/
 {
     "compilerOptions": {
       "baseUrl": "./src",
