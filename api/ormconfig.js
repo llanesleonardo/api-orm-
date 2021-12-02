@@ -16,8 +16,8 @@ module.exports = {
   port: process.env.MYSQL_PORT || 3306,
   username: process.env.MYSQL_USER || "root",
   password: process.env.MYSQL_PASSWORD || "test123",
-  database: process.env.MYSQL_DATABASE || "apimysql",
-  entities: ["src/models/*.js"],
+  database: process.env.MYSQL_DATABASE || "apidb",
+  entities: ["src/models/**/*.js"],
   synchronize: true,
   logging: true,
 };

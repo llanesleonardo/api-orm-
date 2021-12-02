@@ -8,13 +8,17 @@ import apiErrors from "../errors/apiErrors";
  */
 
 // TODO : LEARN MORE ABOUT ERRORS
-export async function index(req, res) {
+export async function index(req, res, next) {
   try {
     let photos = await photosServices.index();
+    if (!photos) {
+      next(apiErrors.badRequest("Something went wrong with the photos"));
+      return;
+    }
     res.status(200).json(photos);
   } catch (e) {
-    console.log("sucedió un error en el controller " + e.stack);
-    res.status(500).send("sucedió un error en el controller");
+    next(apiErrors.internal("Something went wrong  overall"));
+    return;
   }
 }
 /**
@@ -23,16 +27,18 @@ export async function index(req, res) {
  * @payload variable that explain the new data that will be save in the db
  * @newPhoto variable that recieves a new document that has the store data from the payload
  */
-export async function store(req, res) {
+export async function store(req, res, next) {
   try {
-    const payload = {
-      name: "new photo  " + new Date(),
-    };
-    let newPhoto = await photosServices.store(payload);
+    let newPhoto = await photosServices.store(req.body);
+    if (!newPhoto) {
+      next(apiErrors.badRequest("Something went wrong with the New Photo"));
+      return;
+    }
+
     res.status(200).json(newPhoto);
   } catch (e) {
-    console.log("sucedió un error en el controller " + e.stack);
-    res.status(500).send("sucedió un error en el controller ");
+    next(apiErrors.internal("Something went wrong  overall"));
+    return;
   }
 }
 /**
@@ -51,7 +57,7 @@ export async function show(req, res, next) {
     console.log(onePhoto);
     res.status(200).json(onePhoto);
   } catch (e) {
-    next(apiErrors.badRequest("Something went wrong  overall"));
+    next(apiErrors.internal("Something went wrong  overall"));
     return;
   }
 }
@@ -62,15 +68,19 @@ export async function show(req, res, next) {
  * @req.params.id is the value taken from the req parameter that includes a number, the pattern is define by the route
  * @object payload that comes from the request parameter
  */
-export async function update(req, res) {
+export async function update(req, res, next) {
   try {
-    let updatePhoto = await photosServices.update(req.params.id, {
-      name: "nueva foto updated " + new Date(),
-    });
+    let updatePhoto = await photosServices.update(req.params.id, req.body);
+    if (!updatePhoto) {
+      next(
+        apiErrors.badRequest("Something went wrong with Updating the Photo")
+      );
+      return;
+    }
     res.status(200).json(updatePhoto);
   } catch (e) {
-    console.log("sucedió un error en el controller " + e.stack);
-    res.status(500).send("sucedió un error en el controller ");
+    next(apiErrors.internal("Something went wrong  overall"));
+    return;
   }
 }
 /**
@@ -79,12 +89,12 @@ export async function update(req, res) {
  * @photoDeleted variable that recieves a notification of a specific deleted document
  * @req.params.id is the value taken from the req parameter that includes a number, the pattern is define by the route
  */
-export async function destroy(req, res) {
+export async function destroy(req, res, next) {
   try {
     let photoDeleted = await photosServices.destroy(req.params.id);
     res.status(200).json("foto borrada con exito");
   } catch (e) {
-    console.log("sucedió un error en el controller " + e.stack);
-    res.status(500).send("sucedió un error en el controller");
+    next(apiErrors.internal("Something went wrong  overall"));
+    return;
   }
 }

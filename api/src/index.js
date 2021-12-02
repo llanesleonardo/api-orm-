@@ -30,6 +30,5 @@ http.Server(app).listen(PORT, async () => {
     console.log(chalk.green(`Api started at : http://localhost:${PORT}/api`));
   } catch (error) {
     console.error(error);
-    res.status(500).send("Something went wrong with the server");
   }
 });
