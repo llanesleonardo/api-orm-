@@ -6,6 +6,7 @@ import cors from "cors";
 import compression from "compression";
 import rootPath from "app-root-path";
 import router from "./router";
+import { errorHandler } from "./middleware/apiErrors";
 
 // set var's
 const appRootPath = rootPath.toString();
@@ -29,4 +30,5 @@ app.get("/", (_, res) => res.sendFile("public", "index.html"));
 // use router file
 app.use(router);
 
+app.use(errorHandler);
 export default app;

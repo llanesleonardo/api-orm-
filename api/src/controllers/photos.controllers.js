@@ -1,4 +1,5 @@
 import * as photosServices from "@services/photos.services";
+import apiErrors from "../errors/apiErrors";
 /**
  * @param  {} req
  * @param  {} res
@@ -40,13 +41,18 @@ export async function store(req, res) {
  * @onePhoto variable that recieves a specific document from the db
  * @req.params.id is the value taken from the req parameter that includes a number, the pattern is define by the route
  */
-export async function show(req, res) {
+export async function show(req, res, next) {
   try {
     let onePhoto = await photosServices.show(req.params.id);
+    if (!onePhoto) {
+      next(apiErrors.badRequest("Something went wrong with Fetch One Photo"));
+      return;
+    }
+    console.log(onePhoto);
     res.status(200).json(onePhoto);
   } catch (e) {
-    console.log("sucedió un error en el controller " + e.stack);
-    res.status(500).send("sucedió un error en el controller ");
+    next(apiErrors.badRequest("Something went wrong  overall"));
+    return;
   }
 }
 /**
