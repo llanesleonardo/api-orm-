@@ -1,10 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Photo {
+export class Photos {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
+
+  @Column()
+  creation_date: string;
 }

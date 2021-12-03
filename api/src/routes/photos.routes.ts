@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as photosController from "@controllers/photos.controllers";
+import * as photosController from "../controllers/photos.controllers";
 
 const router = Router();
 

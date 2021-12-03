@@ -1,5 +1,6 @@
-import * as photosServices from "@services/photos.services";
-import apiErrors from "../errors/apiErrors";
+import * as photosServices from "../services/photos.services";
+import { apiErrors } from "../errors/apiErrors";
+import { Request, Response } from "express";
 /**
  * @param  {} req
  * @param  {} res
@@ -8,7 +9,7 @@ import apiErrors from "../errors/apiErrors";
  */
 
 // TODO : LEARN MORE ABOUT ERRORS
-export async function index(req, res, next) {
+export async function index(req: Request, res: Response, next: any) {
   try {
     let photos = await photosServices.index();
     if (!photos) {
@@ -27,7 +28,7 @@ export async function index(req, res, next) {
  * @payload variable that explain the new data that will be save in the db
  * @newPhoto variable that recieves a new document that has the store data from the payload
  */
-export async function store(req, res, next) {
+export async function store(req: Request, res: Response, next: any) {
   try {
     let newPhoto = await photosServices.store(req.body);
     if (!newPhoto) {
@@ -47,7 +48,7 @@ export async function store(req, res, next) {
  * @onePhoto variable that recieves a specific document from the db
  * @req.params.id is the value taken from the req parameter that includes a number, the pattern is define by the route
  */
-export async function show(req, res, next) {
+export async function show(req: Request, res: Response, next: any) {
   try {
     let onePhoto = await photosServices.show(req.params.id);
     if (!onePhoto) {
@@ -68,7 +69,7 @@ export async function show(req, res, next) {
  * @req.params.id is the value taken from the req parameter that includes a number, the pattern is define by the route
  * @object payload that comes from the request parameter
  */
-export async function update(req, res, next) {
+export async function update(req: Request, res: Response, next: any) {
   try {
     let updatePhoto = await photosServices.update(req.params.id, req.body);
     if (!updatePhoto) {
@@ -89,7 +90,7 @@ export async function update(req, res, next) {
  * @photoDeleted variable that recieves a notification of a specific deleted document
  * @req.params.id is the value taken from the req parameter that includes a number, the pattern is define by the route
  */
-export async function destroy(req, res, next) {
+export async function destroy(req: Request, res: Response, next: any) {
   try {
     let photoDeleted = await photosServices.destroy(req.params.id);
     res.status(200).json("foto borrada con exito");

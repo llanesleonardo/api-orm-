@@ -1,5 +1,5 @@
 import { Router } from "express";
-import photosRoutes from "@routes/photos.routes";
+import photosRoutes from "./routes/photos.routes";
 // create an instance of Router Express
 const router = Router();
 

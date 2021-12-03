@@ -1,6 +1,7 @@
-import apiErrors from "../errors/apiErrors";
+import { apiErrors } from "../errors/apiErrors";
+import { Request, Response } from "express";
 
-export function errorHandler(err, req, res, next) {
+export function errorHandler(err: any, req: Request, res: Response, next: any) {
   if (err instanceof apiErrors) {
     res.status(err.code).json(err.message);
     return;

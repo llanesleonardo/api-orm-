@@ -1229,6 +1229,11 @@
   "resolved" "https://registry.npmjs.org/@tsconfig/recommended/-/recommended-1.0.1.tgz"
   "version" "1.0.1"
 
+"@types/app-root-path@^1.2.4":
+  "integrity" "sha1-p4twMoKzKsVN52j1US7MNWmRncc="
+  "resolved" "https://registry.npmjs.org/@types/app-root-path/-/app-root-path-1.2.4.tgz"
+  "version" "1.2.4"
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   "integrity" "sha512-EAEHtisTMM+KaKwfWdC3oyllIqswlznXCIVCt7/oRNrh+DhgT4UEBNC/jlADNjvw7UnfbcdkGQcPVZ1xYiLcrQ=="
   "resolved" "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.1.16.tgz"
@@ -1270,6 +1275,13 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/compression@^1.7.2":
+  "integrity" "sha512-lwEL4M/uAGWngWFLSG87ZDr2kLrbuR8p7X+QZB1OQlT+qkHsCPDVFnHPyXf4Vyl4yDDorNY+mAhosxkCvppatg=="
+  "resolved" "https://registry.npmjs.org/@types/compression/-/compression-1.7.2.tgz"
+  "version" "1.7.2"
+  dependencies:
+    "@types/express" "*"
+
 "@types/connect@*":
   "integrity" "sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ=="
   "resolved" "https://registry.npmjs.org/@types/connect/-/connect-3.4.35.tgz"
@@ -1291,7 +1303,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@^4.17.13":
+"@types/express@*", "@types/express@^4.17.13":
   "integrity" "sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA=="
   "resolved" "https://registry.npmjs.org/@types/express/-/express-4.17.13.tgz"
   "version" "4.17.13"
