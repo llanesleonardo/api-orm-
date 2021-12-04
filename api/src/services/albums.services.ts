@@ -1,11 +1,11 @@
 import { getRepository, getConnection } from "typeorm";
-import { Photo } from "../models/photos.models";
+import { Album } from "../models/albums.models";
 /**
  * @getPhotoRepository get a specific repositor, similar to use a specific schema or table in the database
  */
-function getPhotoRepository() {
+function getAlbumRepository() {
   try {
-    return getConnection().getRepository(Photo);
+    return getConnection().getRepository(Album);
   } catch (e) {
     return console.log("sucedió un error en el service ");
   }
@@ -16,7 +16,7 @@ function getPhotoRepository() {
  */
 export async function index() {
   try {
-    return await getRepository(Photo).find();
+    return await getRepository(Album).find();
   } catch (e) {
     return console.log("sucedió un error en el service ");
   }
@@ -27,9 +27,14 @@ export async function index() {
  */
 export async function show(id: string) {
   try {
-    return await getRepository(Photo).findOne(id, {
-      relations: ["album"],
-    });
+    /*  return await getRepository(Album).findOne(id, {
+      relations: ["photo"],
+    });*/
+    return getRepository(Album)
+      .createQueryBuilder("album")
+      .leftJoinAndSelect("album.photo", "photos")
+      .where("album.id = :albumId", { albumId: id })
+      .getOne();
   } catch (e) {
     return console.log("sucedió un error en el service ");
   }
@@ -40,8 +45,8 @@ export async function show(id: string) {
  */
 export async function store(payload: any) {
   try {
-    let photo = await getRepository(Photo).create(payload);
-    return await getRepository(Photo).save(photo);
+    let album = await getRepository(Album).create(payload);
+    return await getRepository(Album).save(album);
     // return photoWithAlbum;
   } catch (e) {
     return console.log("sucedió un error en el service ");
@@ -54,18 +59,10 @@ export async function store(payload: any) {
  */
 export async function update(id: string, payload: Object) {
   try {
-    let album1 = {
-      id: 1,
-      name: "TypeScript",
-    };
-    let album2 = {
-      id: 2,
-      name: "Programming",
-    };
-    let photoToUpdate = await getRepository(Photo).findOne(id);
-    if (photoToUpdate) {
-      await getRepository(Photo).merge(photoToUpdate, payload);
-      return await getRepository(Photo).save(photoToUpdate);
+    let albumToUpdate = await getRepository(Album).findOne(id);
+    if (albumToUpdate) {
+      await getRepository(Album).merge(albumToUpdate, payload);
+      return await getRepository(Album).save(albumToUpdate);
     }
 
     return { error: "not found" };
@@ -80,7 +77,7 @@ export async function update(id: string, payload: Object) {
  */
 export async function destroy(id: string) {
   try {
-    return await getRepository(Photo).delete(id);
+    return await getRepository(Album).delete(id);
   } catch (e) {
     return console.log("sucedió un error en el service ");
   }

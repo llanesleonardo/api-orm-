@@ -12,7 +12,8 @@
     "start": "nodemon --exec npx babel-node src/index.js",
     "build": "babel src --out-dir dist",
     "build2": "tsc",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\" "
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.16.4",
@@ -52,6 +53,7 @@
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-plugin-import": "^2.24.2",
     "nodemon": "^2.0.7",
+    "tsc-watch": "^4.5.0",
     "typescript": "^4.5.2"
   }
 }

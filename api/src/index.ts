@@ -11,7 +11,7 @@ import { createConnection } from "typeorm";
 /**
  * @PORT variable that choose a value of a port depending on the enviroment
  */
-const PORT = process.env.PORT || 3307;
+const PORT = process.env.PORT || 5000;
 // 3005
 
 /**

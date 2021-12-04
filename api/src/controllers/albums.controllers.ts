@@ -1,4 +1,4 @@
-import * as photosServices from "../services/photos.services";
+import * as albumsServices from "../services/albums.services";
 import { apiErrors } from "../errors/apiErrors";
 import { Request, Response } from "express";
 /**
@@ -11,12 +11,12 @@ import { Request, Response } from "express";
 // TODO : LEARN MORE ABOUT ERRORS
 export async function index(req: Request, res: Response, next: any) {
   try {
-    let photos = await photosServices.index();
-    if (!photos) {
+    let albums = await albumsServices.index();
+    if (!albums) {
       next(apiErrors.badRequest("Something went wrong with the photos"));
       return;
     }
-    res.status(200).json(photos);
+    res.status(200).json(albums);
   } catch (e) {
     next(apiErrors.internal("Something went wrong  overall"));
     return;
@@ -30,13 +30,13 @@ export async function index(req: Request, res: Response, next: any) {
  */
 export async function store(req: Request, res: Response, next: any) {
   try {
-    let newPhoto = await photosServices.store(req.body);
-    if (!newPhoto) {
+    let newAlbum = await albumsServices.store(req.body);
+    if (!newAlbum) {
       next(apiErrors.badRequest("Something went wrong with the New Photo"));
       return;
     }
 
-    res.status(200).json(newPhoto);
+    res.status(200).json(newAlbum);
   } catch (e) {
     next(apiErrors.internal("Something went wrong  overall"));
     return;
@@ -50,13 +50,13 @@ export async function store(req: Request, res: Response, next: any) {
  */
 export async function show(req: Request, res: Response, next: any) {
   try {
-    let onePhoto = await photosServices.show(req.params.id);
-    if (!onePhoto) {
+    let oneAlbum = await albumsServices.show(req.params.id);
+    if (!oneAlbum) {
       next(apiErrors.badRequest("Something went wrong with Fetch One Photo"));
       return;
     }
-    console.log(onePhoto);
-    res.status(200).json(onePhoto);
+    console.log(oneAlbum);
+    res.status(200).json(oneAlbum);
   } catch (e) {
     next(apiErrors.internal("Something went wrong  overall"));
     return;
@@ -71,15 +71,15 @@ export async function show(req: Request, res: Response, next: any) {
  */
 export async function update(req: Request, res: Response, next: any) {
   try {
-    let updatePhoto = await photosServices.update(req.params.id, req.body);
-    if (!updatePhoto) {
-      console.log(updatePhoto);
+    let updateAlbum = await albumsServices.update(req.params.id, req.body);
+    if (!updateAlbum) {
+      console.log(updateAlbum);
       next(
         apiErrors.badRequest("Something went wrong with Updating the Photo")
       );
       return;
     }
-    res.status(200).json(updatePhoto);
+    res.status(200).json(updateAlbum);
   } catch (e) {
     next(apiErrors.internal("Something went wrong  overall"));
     return;
@@ -93,8 +93,8 @@ export async function update(req: Request, res: Response, next: any) {
  */
 export async function destroy(req: Request, res: Response, next: any) {
   try {
-    let photoDeleted = await photosServices.destroy(req.params.id);
-    res.status(200).json(photoDeleted);
+    let albumDeleted = await albumsServices.destroy(req.params.id);
+    res.status(200).json(albumDeleted);
   } catch (e) {
     next(apiErrors.internal("Something went wrong  overall"));
     return;

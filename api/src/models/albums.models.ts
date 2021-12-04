@@ -1,10 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Photo } from "./photos.models";
 
 @Entity()
-export class Photos {
+export class Album {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
+
+  @OneToMany(() => Photo, (photo) => photo.album, { onDelete: "SET NULL" })
+  photo: Photo[];
 }
