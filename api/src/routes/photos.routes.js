@@ -1,5 +1,7 @@
 import { Router } from "express";
 import * as photosController from "@controllers/photos.controllers";
+import { arrayFuction, validate } from "../validations/photoObjectValidation";
+import { errorsValidation } from "../middleware/photoValidation";
 
 const router = Router();
 
@@ -14,11 +16,20 @@ const router = Router();
  * @param  {} photosController.index calling the index function in the photosController file (fetch all documents)
  */
 router.get("/photos", photosController.index);
+
 /**
- * @param  {} "/photos"
- * @param  {} photosController.store calling the store function in the photosController file (save a document)
+ * @api {post} /photos call api v1
+ * @apiName photosController.store calling the store function in the photosController file (save a document)
+ * @apiPermission client
+ * @apiGroup ____?
+ * This parameters come from destructuring req.body
+ * @apiParam  {String} [name] name of the photo
+ * @apiParam  {String} [description] description of the photo
+ * @apiParam  {String} [creation_date] creation_date of the photo
+ * @apiParam  {String} [author] author of the photo
+ * @apiSuccess (200) {Object} new `Photo` object
  */
-router.post("/photos", photosController.store);
+router.post("/photos", arrayFuction, errorsValidation, photosController.store);
 /**
  * @param  {id"} "/photos/
  * @param  {} photosController.show calling the show function in the photosController file (fetch a document)

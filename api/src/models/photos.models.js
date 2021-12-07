@@ -17,5 +17,17 @@ module.exports = new EntitySchema({
     name: {
       type: "varchar",
     },
+    description: {
+      type: "varchar",
+    },
+    creation_date: {
+      type: "varchar",
+    },
+    author: {
+      type: "varchar",
+    },
+    camponuevo: {
+      type: "varchar",
+    },
   },
 });

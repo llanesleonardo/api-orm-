@@ -41,7 +41,7 @@ services:
       - '/opt/api/node_modules'
       - './api:/opt/api'
     ports:
-      - 4000:4000
+      - 5000:5000
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD:

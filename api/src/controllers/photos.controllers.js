@@ -1,5 +1,6 @@
 import * as photosServices from "@services/photos.services";
 import apiErrors from "../errors/apiErrors";
+
 /**
  * @param  {} req
  * @param  {} res
@@ -29,15 +30,18 @@ export async function index(req, res, next) {
  */
 export async function store(req, res, next) {
   try {
-    let newPhoto = await photosServices.store(req.body);
-    if (!newPhoto) {
-      next(apiErrors.badRequest("Something went wrong with the New Photo"));
-      return;
-    }
-
+    console.log(req.body);
+    const { name, description, creation_date, author, camponuevo } = req.body;
+    let newPhoto = await photosServices.store(
+      name,
+      description,
+      creation_date,
+      author,
+      camponuevo
+    );
     res.status(200).json(newPhoto);
   } catch (e) {
-    next(apiErrors.internal("Something went wrong  overall"));
+    next(apiErrors.internal("Something went wrong overall" + e));
     return;
   }
 }
@@ -70,7 +74,22 @@ export async function show(req, res, next) {
  */
 export async function update(req, res, next) {
   try {
-    let updatePhoto = await photosServices.update(req.params.id, req.body);
+    const errors = validationResult(req); // Finds the validation errors in this request and wraps them in an object with handy functions
+
+    if (!errors.isEmpty()) {
+      res.status(422).json({ errors: errors.array() });
+      return;
+    }
+
+    const { name, description, creation_date, author, camponuevo } = req.body;
+    let updatePhoto = await photosServices.update(
+      req.params.id,
+      name,
+      description,
+      creation_date,
+      author,
+      camponuevo
+    );
     if (!updatePhoto) {
       next(
         apiErrors.badRequest("Something went wrong with Updating the Photo")
@@ -79,7 +98,7 @@ export async function update(req, res, next) {
     }
     res.status(200).json(updatePhoto);
   } catch (e) {
-    next(apiErrors.internal("Something went wrong  overall"));
+    next(apiErrors.internal("Something went wrong  overall" + e));
     return;
   }
 }

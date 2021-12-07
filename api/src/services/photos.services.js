@@ -35,8 +35,21 @@ export async function show(id) {
  * @store crete a document an then save that document into db
  * @param  {} payload
  */
-export async function store(payload) {
+export async function store(
+  name,
+  description,
+  creation_date,
+  author,
+  camponuevo = null
+) {
   try {
+    let payload = {
+      name,
+      description,
+      creation_date,
+      author,
+      camponuevo,
+    };
     let photo = await getPhotoRepository().create(payload);
     return await getPhotoRepository().save(photo);
   } catch (e) {
@@ -48,10 +61,24 @@ export async function store(payload) {
  * @param  {} id
  * @param  {} paypload
  */
-export async function update(id, paypload) {
+export async function update(
+  id,
+  name,
+  description,
+  creation_date,
+  author,
+  camponuevo
+) {
   try {
     let photoToUpdate = await getPhotoRepository().findOne(id);
-    getRepository("photos").merge(photoToUpdate, paypload);
+    let payload = {
+      name,
+      description,
+      creation_date,
+      author,
+      camponuevo,
+    };
+    getRepository("photos").merge(photoToUpdate, payload);
     return await getPhotoRepository().save(photoToUpdate);
   } catch (e) {
     return console.log("sucedió un error en el service " + e.stack);

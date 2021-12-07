@@ -1,4 +1,4 @@
-class apiErrors {
+export default class apiErrors {
   constructor(code, message) {
     this.code = code;
     this.message = message;
@@ -32,5 +32,3 @@ class apiErrors {
     return new apiErrors(504, msg);
   }
 }
-
-module.exports = apiErrors;
