@@ -40,7 +40,8 @@ export async function store(
   description,
   creation_date,
   author,
-  camponuevo = null
+  camponuevo = null,
+  correodelauthor
 ) {
   try {
     let payload = {
@@ -49,6 +50,7 @@ export async function store(
       creation_date,
       author,
       camponuevo,
+      correodelauthor,
     };
     let photo = await getPhotoRepository().create(payload);
     return await getPhotoRepository().save(photo);
@@ -67,7 +69,8 @@ export async function update(
   description,
   creation_date,
   author,
-  camponuevo
+  camponuevo = null,
+  correodelauthor
 ) {
   try {
     let photoToUpdate = await getPhotoRepository().findOne(id);
@@ -77,6 +80,7 @@ export async function update(
       creation_date,
       author,
       camponuevo,
+      correodelauthor,
     };
     getRepository("photos").merge(photoToUpdate, payload);
     return await getPhotoRepository().save(photoToUpdate);

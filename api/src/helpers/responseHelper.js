@@ -1,3 +1,3 @@
-export function responseFormat(code, object, message) {
-  return { code, object, message };
+export function responseFormat(code, data, message) {
+  return { code, data, message };
 }

@@ -29,5 +29,8 @@ module.exports = new EntitySchema({
     camponuevo: {
       type: "varchar",
     },
+    correodelauthor: {
+      type: "varchar",
+    },
   },
 });

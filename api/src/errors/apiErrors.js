@@ -1,3 +1,5 @@
+import { responseFormat } from "../helpers/responseHelper";
+
 export default class apiErrors {
   constructor(code, message) {
     this.code = code;

@@ -30,18 +30,26 @@ export async function index(req, res, next) {
  */
 export async function store(req, res, next) {
   try {
-    console.log(req.body);
-    const { name, description, creation_date, author, camponuevo } = req.body;
-    let newPhoto = await photosServices.store(
+    const {
       name,
       description,
       creation_date,
       author,
-      camponuevo
+      camponuevo,
+      correodelauthor,
+    } = req.body;
+    let nePhoto = await photosServices.store(
+      name,
+      description,
+      creation_date,
+      author,
+      camponuevo,
+      correodelauthor
     );
     res.status(200).json(newPhoto);
   } catch (e) {
-    next(apiErrors.internal("Something went wrong overall" + e));
+    next(apiErrors.internal("Error in photos controllers store" + e));
+    console.error(e);
     return;
   }
 }
@@ -74,28 +82,24 @@ export async function show(req, res, next) {
  */
 export async function update(req, res, next) {
   try {
-    const errors = validationResult(req); // Finds the validation errors in this request and wraps them in an object with handy functions
-
-    if (!errors.isEmpty()) {
-      res.status(422).json({ errors: errors.array() });
-      return;
-    }
-
-    const { name, description, creation_date, author, camponuevo } = req.body;
+    const {
+      name,
+      description,
+      creation_date,
+      author,
+      camponuevo,
+      correodelauthor,
+    } = req.body;
     let updatePhoto = await photosServices.update(
       req.params.id,
       name,
       description,
       creation_date,
       author,
-      camponuevo
+      camponuevo,
+      correodelauthor
     );
-    if (!updatePhoto) {
-      next(
-        apiErrors.badRequest("Something went wrong with Updating the Photo")
-      );
-      return;
-    }
+
     res.status(200).json(updatePhoto);
   } catch (e) {
     next(apiErrors.internal("Something went wrong  overall" + e));
