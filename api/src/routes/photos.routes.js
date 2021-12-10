@@ -3,7 +3,6 @@ import * as photosController from "@controllers/photos.controllers";
 import {
   PostValidationPhotos,
   PutValidationPhotos,
-  validate,
 } from "../validations/photoObjectValidation";
 import { errorsValidation } from "../middleware/photoValidation";
 
@@ -34,7 +33,8 @@ router.get("/photos", photosController.index);
  * @apiSuccess (200) {Object} new `Photo` object
  APISPECS
  */
-
+// this route has 2 middlewares and 1 controller - the validation(middleware) PostValidationPhotos is an specific way to validate fields that comes form the client, the middleware errorsValidation is an specific function
+// that handles an inside function validationResult tha comes from express-validator and also handles the responses to the client with respondeFormat function interface
 router.post(
   "/photos",
   PostValidationPhotos,
@@ -50,6 +50,9 @@ router.get("/photos/:id", photosController.show);
  * @param  {id"} "/photos/
  * @param  {} photosController.update calling the update function in the photosController file (update a document)
  */
+
+// this route has 2 middlewares and 1 controller - the validation(middleware) PostValidationPhotos is an specific way to validate fields that comes form the client, the middleware errorsValidation is an specific function
+// that handles an inside function validationResult tha comes from express-validator and also handles the responses to the client with respondeFormat function interface
 router.put(
   "/photos/:id",
   PostValidationPhotos,

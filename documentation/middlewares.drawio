@@ -1,0 +1,125 @@
+<mxfile host="65bd71144e">
+    <diagram id="D0RTXfow-xDwquW6D8MD" name="apiErrors.js">
+        <mxGraphModel dx="879" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="create errorHandler function that takes 4 value paramaters&lt;br&gt;err,req,res,next" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="170" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Import custom modules" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="70" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="conditional IF to check if is an error create by a class ApiErrors" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Call function responseFormat&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="260" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="11" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="helpers/responseHelper.js" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+                    <mxGeometry x="545" y="110" width="80" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="use res to send status and json specific error response&amp;nbsp; to the front end" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="14" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="14" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="belong to ApiErrors Class" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="320" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="15" target="18" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Call function responseFormat&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="410" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="use res to send status and json general response to the front end" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="RVHieGHf8wHTksoXTwKF" name="photoValidation.js">
+        <mxGraphModel dx="879" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="hLE1mkcfpWMR6fUYnd6f-0"/>
+                <mxCell id="hLE1mkcfpWMR6fUYnd6f-1" parent="hLE1mkcfpWMR6fUYnd6f-0"/>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-4" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-0" target="OAEfX_6_w3oFAkvSA7z5-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-0" value="import npm&amp;nbsp; &amp;amp; Custom modules" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="80" y="90" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0;exitDx=0;exitDy=30;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-1" target="OAEfX_6_w3oFAkvSA7z5-0">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-7" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0;exitDx=70;exitDy=80;exitPerimeter=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-1" target="OAEfX_6_w3oFAkvSA7z5-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-1" value="expres-validator" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="260" y="20" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-21" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-3" target="OAEfX_6_w3oFAkvSA7z5-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-3" value="create errorValidation function with 3 value parameters&lt;br&gt;req,res,next" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="150" y="190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-8" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-5" target="OAEfX_6_w3oFAkvSA7z5-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-5" value="create a constant that calls validationResult function with 1 parameter req" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="270" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-10" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-6" target="OAEfX_6_w3oFAkvSA7z5-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-6" value="conditional that evaluates if an error exists in the constant errors" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="410" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-14" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-9" target="OAEfX_6_w3oFAkvSA7z5-16">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="630" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-20" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-9" target="OAEfX_6_w3oFAkvSA7z5-19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-9" value="errors exists?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="550" y="250" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-18" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="hLE1mkcfpWMR6fUYnd6f-1" source="OAEfX_6_w3oFAkvSA7z5-16" target="OAEfX_6_w3oFAkvSA7z5-17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-16" value="&lt;span&gt;create a constant response and call responseFormat function with a code, and object o errors and a message&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="640" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-17" value="return res with code and json response" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="780" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="OAEfX_6_w3oFAkvSA7z5-19" value="&lt;span&gt;continue without errors with next() function&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="hLE1mkcfpWMR6fUYnd6f-1">
+                    <mxGeometry x="640" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,9 +1,9 @@
-import "@babel/polyfill";
-import http from "http";
-import app from "@app";
-import chalk from "chalk";
-import { getEnv } from "@config/env";
-import { createConnection } from "typeorm";
+import "@babel/polyfill"; // This npm module import preset with a babel decorator
+import http from "http"; // This npm module import the method http
+import app from "@app"; // // This npm module import the method app
+import chalk from "chalk"; // This npm module import the method chalk
+import { getEnv } from "@config/env"; // This custom module import the method getEnv
+import { createConnection } from "typeorm"; // This npm module import the method createConnection
 
 /**
  * @destructuring of the getEnv() function to get enviromental variables from .env file (this only works on development mode)

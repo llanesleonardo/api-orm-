@@ -1,36 +1,38 @@
-import { responseFormat } from "../helpers/responseHelper";
-
 export default class apiErrors {
-  constructor(code, message) {
+  constructor(code, data, message, method, path, body) {
     this.code = code;
+    this.data = data;
     this.message = message;
+    this.method = method;
+    this.path = path;
+    this.body = body;
   }
 
-  static badRequest(msg) {
-    return new apiErrors(400, msg);
+  static badRequest(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 
-  static unauthorized(msg) {
-    return new apiErrors(401, msg);
+  static unauthorized(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 
-  static forbidden(msg) {
-    return new apiErrors(403, msg);
+  static forbidden(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 
-  static notFound(msg) {
-    return new apiErrors(404, msg);
+  static notFound(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 
-  static internal(msg) {
-    return new apiErrors(500, msg);
+  static internal(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 
-  static serviceUnavaible(msg) {
-    return new apiErrors(503, msg);
+  static serviceUnavaible(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 
-  static gatewayTimeOut(msg) {
-    return new apiErrors(504, msg);
+  static gatewayTimeOut(code, data, msg, method, path, body = {}) {
+    return new apiErrors(code, data, msg, method, path, body);
   }
 }

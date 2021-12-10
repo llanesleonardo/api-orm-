@@ -9,6 +9,7 @@
       "baseUrl": "./src",
       "paths": {
         "@config": ["./config"],
+        "@errors": ["./erros"],
         "@middleware": ["./middleware"],
         "@modules": ["./modules"],
         "@utils": ["./utils"],
@@ -17,6 +18,8 @@
         "@controllers": ["./controllers"],
         "@services": ["./services"],
         "@helpers": ["./helpers"],
+        "@validations": ["./validations"],
+        "@tests": ["./tests"],
         "@app": ["./app.js"]
       }
     }

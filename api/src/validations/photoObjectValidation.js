@@ -32,27 +32,3 @@ export const PutValidationPhotos = [
     .toUpperCase()
     .withMessage("El campo se sanitizo convirtiendo el valor a MINUSCULAS"),
 ];
-//.isArray(2).withMessage("NO es un arreglo")
-
-export const validate = (req) => {
-  switch (req.method) {
-    case "PUT": {
-      return [
-        body("name", "Photo name does not exists").exists(),
-        body("description", "Photo description does not exists").exists(),
-        body("creation_date", "Photo creation_date doesnt exists").exists(),
-        body("author", "Photo author does not exists").exists(),
-        body("camponuevo", "Photo camponuevo does not exists").exists(),
-      ];
-    }
-    case "POST": {
-      return [
-        body("name", "Photo name does not exists").exists(),
-        body("description", "Photo description does not exists").exists(),
-        body("creation_date", "Photo creation_date doesnt exists").exists(),
-        body("author", "Photo author does not exists").exists(),
-        body("camponuevo", "Photo camponuevo does not exists").exists(),
-      ];
-    }
-  }
-};

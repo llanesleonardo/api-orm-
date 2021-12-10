@@ -6,7 +6,18 @@ function getPhotoRepository() {
   try {
     return getConnection().getRepository("photos");
   } catch (e) {
-    return console.log("sucedió un error en el service " + e.stack);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
+    return;
   }
 }
 
@@ -17,7 +28,18 @@ export async function index() {
   try {
     return await getPhotoRepository().find();
   } catch (e) {
-    return console.log("sucedió un error en el service " + e.stack);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
+    return;
   }
 }
 /**
@@ -28,7 +50,18 @@ export async function show(id) {
   try {
     return await getPhotoRepository().findOne(id);
   } catch (e) {
-    return console.log("sucedió un error en el service " + e.stack);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
+    return;
   }
 }
 /**
@@ -55,7 +88,18 @@ export async function store(
     let photo = await getPhotoRepository().create(payload);
     return await getPhotoRepository().save(photo);
   } catch (e) {
-    return console.log("sucedió un error en el service " + e.stack);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
+    return;
   }
 }
 /**
@@ -85,7 +129,18 @@ export async function update(
     getRepository("photos").merge(photoToUpdate, payload);
     return await getPhotoRepository().save(photoToUpdate);
   } catch (e) {
-    return console.log("sucedió un error en el service " + e.stack);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
+    return;
   }
 }
 
@@ -97,6 +152,17 @@ export async function destroy(id) {
   try {
     return await getPhotoRepository().delete(id);
   } catch (e) {
-    return console.log("sucedió un error en el service " + e.stack);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
+    return;
   }
 }

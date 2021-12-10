@@ -11,14 +11,20 @@ import apiErrors from "../errors/apiErrors";
 // TODO : LEARN MORE ABOUT ERRORS
 export async function index(req, res, next) {
   try {
-    let photos = await photosServices.index();
-    if (!photos) {
-      next(apiErrors.badRequest("Something went wrong with the photos"));
-      return;
-    }
-    res.status(200).json(photos);
+    const photos = await photosServices.index(); // call service and store the result in a constant variable
+    res.status(200).json(photos); // send status code and joson rresponse to the client
   } catch (e) {
-    next(apiErrors.internal("Something went wrong  overall"));
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
     return;
   }
 }
@@ -38,7 +44,8 @@ export async function store(req, res, next) {
       camponuevo,
       correodelauthor,
     } = req.body;
-    let nePhoto = await photosServices.store(
+    let newPhoto = await photosServices.store(
+      // call service and store the result in a constant variable
       name,
       description,
       creation_date,
@@ -46,10 +53,19 @@ export async function store(req, res, next) {
       camponuevo,
       correodelauthor
     );
-    res.status(200).json(newPhoto);
+    res.status(200).json(newPhoto); // send status code and joson rresponse to the client
   } catch (e) {
-    next(apiErrors.internal("Error in photos controllers store" + e));
-    console.error(e);
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong on index function",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
     return;
   }
 }
@@ -61,15 +77,21 @@ export async function store(req, res, next) {
  */
 export async function show(req, res, next) {
   try {
-    let onePhoto = await photosServices.show(req.params.id);
-    if (!onePhoto) {
-      next(apiErrors.badRequest("Something went wrong with Fetch One Photo"));
-      return;
-    }
+    let onePhoto = await photosServices.show(req.params.id); // call service and store the result in a constant variable
     console.log(onePhoto);
-    res.status(200).json(onePhoto);
+    res.status(200).json(onePhoto); // send status code and joson rresponse to the client
   } catch (e) {
-    next(apiErrors.internal("Something went wrong  overall"));
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong on index function",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
     return;
   }
 }
@@ -91,6 +113,7 @@ export async function update(req, res, next) {
       correodelauthor,
     } = req.body;
     let updatePhoto = await photosServices.update(
+      // call service and store the result in a constant variable
       req.params.id,
       name,
       description,
@@ -100,9 +123,19 @@ export async function update(req, res, next) {
       correodelauthor
     );
 
-    res.status(200).json(updatePhoto);
+    res.status(200).json(updatePhoto); // send status code and joson rresponse to the client
   } catch (e) {
-    next(apiErrors.internal("Something went wrong  overall" + e));
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong on index function",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
     return;
   }
 }
@@ -114,10 +147,20 @@ export async function update(req, res, next) {
  */
 export async function destroy(req, res, next) {
   try {
-    let photoDeleted = await photosServices.destroy(req.params.id);
-    res.status(200).json("foto borrada con exito");
+    let photoDeleted = await photosServices.destroy(req.params.id); // call service and store the result in a constant variable
+    res.status(200).json("foto borrada con exito"); // send status code and joson rresponse to the client
   } catch (e) {
-    next(apiErrors.internal("Something went wrong  overall"));
+    next(
+      // use next function and call function internal of apiErrors class and send 6 parameters code, errors, message, method, path, body
+      apiErrors.internal(
+        400,
+        e.stack,
+        "Something went wrong on index function",
+        req.method,
+        req.path,
+        req.body
+      )
+    );
     return;
   }
 }
